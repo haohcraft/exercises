@@ -6,19 +6,10 @@ var debounce = function(fn) {
     return function() {
         var _this = this;
         var _args = [].slice.call(arguments);
-        if(!isDebounced) {
-            timer = setTimeout(function() {
-                fn.apply(_this, _args);
-                isDebounced = false;
-            }, time);
-            isDebounced = true;
-        } else {
-            clearTimeout(timer);
-            timer = setTimeout(function() {
-                fn.apply(_this, _args);
-                isDebounced = false;
-            }, time);
-        }
+        if(timer) clearTimeout(timer);
+        timer = setTimeout(function() {
+            fn.apply(_this, _args);
+        }, time);
     };
 }
 
