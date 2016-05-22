@@ -1,11 +1,11 @@
 var curry = function(func) {
     var numOfArgs = func.length;
-    var args = [];
     var result = function() {
+        this.args = this.args || [];
         var _args = [].slice.call(arguments);
-        args = args.concat(_args);
+        this.args = this.args.concat(_args);
         if(args.length < numOfArgs) {
-            return result;
+            return result.bind({args: _args});
         } else {
             return func.apply(null, args);
         }
