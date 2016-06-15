@@ -1,15 +1,14 @@
 var curry = function(func) {
     var numOfArgs = func.length;
-    var curried = function() {
-        this.args = this.args || [];
-        var _args = [].slice.call(arguments);
-        this.args = this.args.concat(_args);
-        if(this.args.length < numOfArgs) {
-            return curried;
+    function curried () {
+        var args = [].slice.call(arguments);
+        if(args.length < numOfArgs) {
+            return function() {
+                var _args = [].slice.call(arguments);
+                return curried.apply(null, args.concat(_args))   
+            };
         } else {
-            var result = func.apply(null, this.args);
-            this.args = [];
-            return result;
+            return func.apply(null, args);
         }
     };
 
