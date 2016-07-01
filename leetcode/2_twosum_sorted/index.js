@@ -46,7 +46,7 @@ var twoSumSorted = function(nums, target) {
         }
     }
 
-    return [];
+    return []
 };
 
 module.exports = twoSumSorted;
