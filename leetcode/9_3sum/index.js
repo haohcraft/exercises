@@ -21,7 +21,7 @@ var threeSum = function(nums) {
                 result.push([nums[i], nums[left], nums[right]]);
                 left++;
                 right--;
-                while(nums[left - 1] === nums[left] && left < right) left++; // Why this is nums[left - 1] === nums[left] instead of nums[left + 1] === nums[left] ??
+                while(nums[left - 1] === nums[left] && left < right) left++; // Why this is nums[left - 1] === nums[left] instead of nums[left + 1] === nums[left] ?? Because there is a `left++` above
                 while(nums[right + 1] === nums[right] && left < right) right--;
             } else if(sum < 0) {
                 left++;
