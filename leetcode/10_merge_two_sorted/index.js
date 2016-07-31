@@ -34,3 +34,11 @@ var merge = function(nums1, m, nums2, n) {
         k--;
     }
 };
+
+var merge2 = function(nums1, m, nums2, n) {
+    var i = 0;
+    while(i < n) {
+        nums1[m+i] = nums2[i];
+    }
+    nums1 = nums1.sort(function(a,b) {return a-b;});
+};
