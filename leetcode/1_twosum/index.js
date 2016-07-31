@@ -1,5 +1,8 @@
+
+// from http://www.lintcode.com/en/problem/two-sum/
 // Map solution 
 // Edge case: the looked-up item is equal to the rest
+// Space O(n), time O(n)
 var twoSum = function(nums, target) {
     var result = [];
     var map = {};
