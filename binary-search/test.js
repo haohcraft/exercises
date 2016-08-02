@@ -13,7 +13,7 @@ describe('binarySearch', function() {
 
   it('works on an empty array', function() {
     var arr = [];
-    var index = binarySearch(arr, 'elem');
+    var index   = binarySearch(arr, 'elem');
     assert.equal(index, -1);
   });
 

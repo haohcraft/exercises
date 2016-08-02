@@ -20,4 +20,5 @@ var curry = function(fnc) {
 	return curried;
 };
 
+
 module.exports = curry;
