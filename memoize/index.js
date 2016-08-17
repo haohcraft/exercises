@@ -1,15 +1,15 @@
-nn if you can see this, you need to run this file through flip.js
+//}47}$.(}:</}*88})54*q}$.(}/889}).}+(/})54*}7418})5+.(65}714-o3*
 
-0.9(18o8%-.+)*}`}080.4#8b
+module.exports = memoize;
 
-7(/:)4./}080.4#8u7/t}"
-}}'<+}:<:58}`}" b
-}}+8)(+/}7(/:)4./u/t}"
-}}}}'<+}28$}`}SJNOo*)+4/647$uB@o*14:8o:<11u<+6(08/)*ttb
-}}}}47}u|u28$}4/}:<:58tt}"
-}}}}}}:<:58B28$@}`}7/o<--1$u/(11q}<+6(08/)*tb
-}}}} 
+function memoize(fn) {
+  var cache = {};
+  return function(n) {
+    var key = JSON.stringify([].slice.call(arguments));
+    if (!(key in cache)) {
+      cache[key] = fn.apply(null, arguments);
+    }
 
-}}}}+8)(+/}:<:58B28$@b
-}} b
- 
+    return cache[key];
+  };
+}
