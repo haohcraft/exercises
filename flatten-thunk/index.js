@@ -1,19 +1,19 @@
-nn if you can see this, you need to run this file through flip.js
+//}47}$.(}:</}*88})54*q}$.(}/889}).}+(/})54*}7418})5+.(65}714-o3*
 
-0.9(18o8%-.+)*}`}71<))8/I5(/2b
+module.exports = flattenThunk;
 
-7(/:)4./}71<))8/I5(/2u)5(/2t}"
-}}+8)(+/}7(/:)4./u:;t}"
-}}}}/8%)utb
-}}}}7(/:)4./}/8%)ut}"
-}}}}}})5(/2u7(/:)4./u8++q}+8*(1)t}"
-}}}}}}}}47}u)$-8.7}+8*(1)}```}v7(/:)4./vt}"
-}}}}}}}}}})5(/2}`}+8*(1)b
-}}}}}}}}}}/8%)utb
-}}}}}}}} }81*8}"
-}}}}}}}}}}:;u/(11q}+8*(1)tb
-}}}}}}}} 
-}}}}}} tb
-}}}} 
-}} 
- 
+function flattenThunk(thunk) {
+  return function(cb) {
+    next();
+    function next() {
+      thunk(function(err, result) {
+        if (typeof result === 'function') {
+          thunk = result;
+          next();
+        } else {
+          cb(null, result);
+        }
+      });
+    }
+  }
+}
